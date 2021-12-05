@@ -120,26 +120,38 @@ fn main() -> Result<()> {
         panic!("Something went wrong filling the boards")
     }
 
-    let mut winning_index = 0;
-    let mut final_number = 0;
+    let mut board_num_set = std::collections::HashSet::new();
+    for i in 0..num_boards {
+        board_num_set.insert(i);
+    }
+
+    let mut last_board_num = 0;
+    let mut last_number_called = 0;
 
     'outer: for i in 0..numbers.len() {
         let current_number = numbers[i];
         println!("Pulling number {}", current_number);
         for j in 0..boards.len() {
+            if !board_num_set.contains(&j) {
+                continue;
+            }
             boards[j].fill_in_number(current_number);
             if boards[j].check_if_win() {
                 println!("BOARD {} won", j + 1);
-                winning_index = j;
-                final_number = current_number;
+                board_num_set.remove(&j);
+            }
+            if board_num_set.len() == 0 {
+                last_board_num = j;
+                last_number_called = current_number;
                 break 'outer;
             }
         }
     }
 
-    let sum = boards[winning_index].sum_unmarked();
-    let score = sum * final_number;
+    let sum = boards[last_board_num].sum_unmarked();
+    let score = sum * last_number_called;
 
+    println!("Last board to win: {}", last_board_num + 1);
     println!("Final score: {}", score);
 
 
