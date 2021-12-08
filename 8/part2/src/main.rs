@@ -414,66 +414,10 @@ fn main() -> Result<()> {
 
         sum = sum + display.parse::<u64>().unwrap();
 
-
-        //for j in 0..note_split.len() {
-        //    for k in 0..note_split[j].len() {
-        //        print!("{}", note_split[j][k]);
-        //    }
-        //    print!("({}) ", note_split[j].len());
-        //}
-        //println!("");
-
-        //println!("{}", note_ans_split[1].trim_start());
-        //for j in 0..ans_s.len() {
-        //    print!("{}: {}({}), ", j, ans_s[j], ans_s[j].len());
-        //    match ans_s[j].len() as u64 {
-        //        DIGITS_1 => sum = sum + 1,
-        //        DIGITS_4 => sum = sum + 1,
-        //        DIGITS_7 => sum = sum + 1,
-        //        DIGITS_8 => sum = sum + 1,
-        //        _ => (),
-        //    }
-        //}
         println!("\n");
     }
 
     println!("SUM: {}", sum);
-
-    //let mut crabs: Vec<u64> = lines_s[0].split(",").map(|x| x.parse::<u64>().unwrap()).collect();
-
-    //let mut max = 0;
-    //for i in 0..crabs.len() {
-    //    if crabs[i] > max {
-    //        max = crabs[i];
-    //    }
-    //}
-    //println!("MAX: {}", max);
-
-    //let mut costs: Vec<u64> = Vec::new();
-    //for i in 0..max {
-    //    costs.push(calculate_cost(&crabs, i));
-    //}
-
-    //let mut min_cost: u64 = std::u64::MAX;
-    //for i in 0..costs.len() {
-    //    if costs[i] < min_cost {
-    //        min_cost = costs[i];
-    //    }
-    //}
-
-    //println!("MIN COST: {}", min_cost);
-
-    //for day in 0..80 {
-    //    for i in 0..fish.len() {
-    //        if fish[i] == 0 {
-    //            fish[i] = 6;
-    //            fish.push(8);
-    //        } else {
-    //            fish[i] = fish[i] - 1;
-    //        }
-    //    }
-    //    println!("Day: {}, Num: {}", day + 1, fish.len());
-    //}
 
     Ok(())
 }
