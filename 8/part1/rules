@@ -1,0 +1,44 @@
+a
+b
+c
+d
+e
+f
+g
+
+0: A B C x E F G 6
+1: x x C x x F x 3 (only)
+2: A x C D E x G 5
+3: A x C D x F G 5
+4: x B C D x F x 4 (only)
+5: A B x D x F G 5
+6: A B x D E F G 6
+7: A x C x x F x 3 (only)
+8: A B C D E F G 7 (only)
+9: A B C D x F G 6
+
+
+
+A: in 7 but not 1
+B: not D, in 4 but not 1 
+C: not F, in 1
+D: in 2 and 5 and 4
+E: leftover
+F: not A D G or B, in 5
+G: not A or D, in 2 and 5
+
+D/G: overlap in 2/5 that is not A
+C/F: overlap in 4/7
+
+5: 5 digits and has B
+
+1. find 1, 4, 7, 8
+2. find mapping for A by rule
+3. find 2/5
+4. find mapping for D by rule
+5. find mapping for G by rule
+6. find mapping for B by rule
+7. find 5
+8. find mapping for F by rule
+9. find mapping for C by rule
+10. find mapping for e 
