@@ -82,28 +82,19 @@ fn main() -> Result<()> {
 
     while !pq.is_empty() {
         if let Some((point, distance)) = pq.pop() {
-            // Update neighbor priority
-            //println!("Processing point: {}, {}", point.x, point.y);
             for neighbor in [Point{x: point.x + 1, y: point.y}, Point{x: point.x - 1, y: point.y}, Point{x: point.x, y: point.y + 1}, Point{x: point.x, y: point.y - 1}].iter() {
                 if let None = pq.get(neighbor) {
                     continue;
                 }
-                //print!("    Processing neighbor: {}, {} ", neighbor.x, neighbor.y);
                 if neighbor.x >= 0 && neighbor.x < map.x && neighbor.y >= 0 && neighbor.y < map.y {
-                    //print!("VALID ");
                     let alt = distance_map[point.y as usize][point.x as usize] + map.map[neighbor.y as usize][neighbor.x as usize];
-                    //print!("ALT: {} ", alt);
-                    //print!("distance_map[{}][{}]: {}", neighbor.y, neighbor.x, distance_map[neighbor.y as usize][neighbor.x as usize]);
                     if alt < distance_map[neighbor.y as usize][neighbor.x as usize] {
-                        //print!("Setting distance_map[{}][{}] to {}", neighbor.y, neighbor.x, alt);
                         distance_map[neighbor.y as usize][neighbor.x as usize] = alt;
                         previous.insert(neighbor.clone(), Some(point));
                         pq.change_priority(neighbor, std::isize::MAX - alt);
                     }
                 }
-                //println!("");
             }
-
         }
     }
 
